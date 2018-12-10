@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.bluemix.net/ALB-ID:  private-cr6221beebe0454d3eaa259838844f46d6-alb1  # alb 수정
+    ingress.bluemix.net/redirect-to-https: "True"
+  name: zcp-kubernetes-dashboard
+  namespace: kube-system
+spec:
+  rules:
+  - host: skn-dashboard.cloudzcp.io  # hostname 수정
+    http:
+      paths:
+      - backend:
+          serviceName: zcp-kubernetes-dashboard
+          servicePort: 80
+  tls:
+  - hosts:
+    - skn-dashboard.cloudzcp.io  # hostname 수정
+    secretName: cloudzcp-io-cert
