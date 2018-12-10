@@ -1,5 +1,5 @@
 ```
-# tls 
+# tls 인증서 
 $ kubectl get secret cloudzcp-io-cert -o yaml -n zcp-system > cloudzcp-io-cert.yaml
 
 # 파일 내부의 namespace 값을 kube-system 으로 수정
