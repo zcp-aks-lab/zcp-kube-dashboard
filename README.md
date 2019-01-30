@@ -8,5 +8,7 @@ $ kubectl create -f cloudzcp-io-cert.yaml -n kube-system
 # 새로운 kubernetes-dashboard 배포
 $ kubectl create -f deployment.yaml -n kube-system
 $ kubectl create -f service.yaml -n kube-system
+
+# 도메인, ALB 설정 변경(확인)
 $ kubectl create -f ingress.yaml -n kube-system
 ```
