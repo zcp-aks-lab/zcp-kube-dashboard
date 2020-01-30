@@ -12,7 +12,7 @@ ZCP Kubernetes dashboard는 ZCP와 연동하기 위한 Kubernetes dashboard입�
 
 ```
 # tls 인증서 kube-system 으로 복사
-$ kubectl patch secret cloudzcp-io-cert -n zcp-system -p='{"metadata": {"namespace": "kube-system"}}' --dry-run -o yaml | kubectl create -f -
+$ kubectl patch secret cloudzcp-io-cert -n zcp-system -p='{"metadata": {"namespace": "kube-system"}}' --dry-run -o yaml | kubectl create -n kube-system -f -
 
 # 새로운 kubernetes-dashboard 배포
 $ kubectl create -f deployment.yaml -n kube-system
@@ -20,4 +20,6 @@ $ kubectl create -f service.yaml -n kube-system
 
 # 도메인, ALB 설정 변경(확인)
 $ kubectl create -f ingress.yaml -n kube-system
+# AKS 인 경우
+$ kubectl create -f ingress-aks.yaml -n kube-system
 ```
